@@ -61,12 +61,12 @@ rec {
   cereal = stdenv.mkDerivation rec {
     name = "cereal-${version}";
     version = "git-arximboldi-${commit}";
-    commit = "f158a44a3277ec2e1807618e63bcb8e1bd559649";
+    commit = "2fe15c57f813db1b14c9b5e3e2389f7c5d1c5aff";
     src = fetchFromGitHub {
-      owner = "arximboldi";
+      owner = "flyqaq";
       repo = "cereal";
       rev = commit;
-      sha256 = "1zny1k00npz3vrx6bhhdd2gpsy007zjykvmf5af3b3vmvip5p9sm";
+      sha256 = "119sldlzkrpnbb0kg052b851kifc7hwnc5vik1fdklramx5gzy97";
     };
     nativeBuildInputs = [ cmake ];
     cmakeFlags="-DJUST_INSTALL_CEREAL=true";
@@ -80,12 +80,12 @@ rec {
   lager = stdenv.mkDerivation rec {
     name = "lager";
     version = "git-${commit}";
-    commit = "56125daacdd2301ab2a8298801d247a593bd4d25";
+    commit = "0f311b5a99fd24fb559ff2d615facdfb44523ee1";
     src = fetchFromGitHub {
-      owner = "arximboldi";
+      owner = "flyqaq";
       repo = "lager";
       rev = commit;
-      sha256 = "093kw3xahl9lgscbkkx5n6f0mmd0gwa4ra1l34gan1ywhf24kn9v";
+      sha256 = "1khjfph0kw17jla8d7lfz5syplssv15f6ijz33m62v3l3a53qnhn";
     };
     buildInputs = [
       ncurses
@@ -101,6 +101,7 @@ rec {
       zug
       cereal
     ];
+    cmakeFlags="-Dlager_BUILD_TESTS=OFF -Dlager_BUILD_FAILURE_TESTS=OFF";
     meta = with lib; {
       homepage    = "https://github.com/arximboldi/lager";
       description = "library for functional interactive c++ programs";
